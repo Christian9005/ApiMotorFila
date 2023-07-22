@@ -16,11 +16,11 @@ public class MDbContext : DbContext
     {
         var builder = new NpgsqlConnectionStringBuilder
         {
-            Host = "containers-us-west-88.railway.app",
-            Port = 6219,
+            Host = "containers-us-west-156.railway.app",
+            Port = 6657,
             Database = "railway",
             Username = "postgres",
-            Password = "avImLpm23jvRAGCLC3C0",
+            Password = "WTlJ5NgSbYLWxAQMZRQy",
         };
 
         string connectionString = builder.ConnectionString;
