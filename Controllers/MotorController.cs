@@ -44,7 +44,8 @@ public class MotorController : ControllerBase
         {
             Name = motorDto.Name,
             Speed = motorDto.Speed,
-            Meter = motorDto.Meter
+            Meter = motorDto.Meter,
+            State = motorDto.State
         };
 
         motorDbContext.Motors.Add(motor);
@@ -65,6 +66,7 @@ public class MotorController : ControllerBase
         motor.Name = motorDto.Name;
         motor.Speed = motorDto.Speed;
         motor.Meter = motorDto.Meter;
+        motor.State = motorDto.State;
 
         motorDbContext.Entry(motor).State = EntityState.Modified;
 
