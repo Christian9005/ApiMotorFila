@@ -55,7 +55,7 @@ public class MotorController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateMotor(int id, MotorDto motorDto)
+    public async Task<IActionResult> UpdateMotor(int id, MotorDtoUpdate motorDto)
     {
         var motor = await motorDbContext.Motors.FindAsync(id);
         if (motor == null)
@@ -63,10 +63,25 @@ public class MotorController : ControllerBase
             return NotFound();
         }
 
-        motor.Name = motorDto.Name;
-        motor.Speed = motorDto.Speed;
-        motor.Meter = motorDto.Meter;
-        motor.State = motorDto.State;
+        if (!string.IsNullOrEmpty(motorDto.Name))
+        {
+            motor.Name = motorDto.Name;
+        }
+
+        if (motorDto.Speed.HasValue)
+        {
+            motor.Speed = motorDto.Speed.Value;
+        }
+
+        if (motorDto.Meter.HasValue)
+        {
+            motor.Meter = motorDto.Meter.Value;
+        }
+
+        if (motorDto.State.HasValue)
+        {
+            motor.State = motorDto.State.Value;
+        }
 
         motorDbContext.Entry(motor).State = EntityState.Modified;
 

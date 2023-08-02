@@ -8,6 +8,6 @@ public class Motor
     public int Id { get; set; }
     public string Name { get; set; }
     public int Speed { get; set; }
-    public int Meter { get; set; }
+    public float Meter { get; set; }
     public bool State { get; set; }
 }
