@@ -26,7 +26,7 @@ app.UseAuthorization();
 
 app.UseCors(builder => 
 {
-    builder.WithOrigins("http://192.168.0.112:3000")
+    builder.WithOrigins("https://ornate-souffle-ac9b32.netlify.app/")
            .AllowAnyMethod()
            .AllowAnyHeader();
 });
